@@ -1,0 +1,29 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: fraud
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: rootpassword
+      database: fraud
+      port: 27017
+      host: mongo
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: mqadmin
+    password: mqadmin
+
+  zipkin:
+    baseUrl: http://zipkin:9411
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

@@ -1,0 +1,11 @@
+server:
+    port: 8096
+
+spring:
+    rabbitmq:
+        host: rabbitmq
+        port: 5672
+        username: mqadmin
+        password: mqadmin
+    zipkin:
+        baseUrl: http://zipkin:9411

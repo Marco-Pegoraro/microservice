@@ -1,0 +1,39 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: customer
+  datasource:
+    url: jdbc:postgresql://postgres:5432/customer
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            localhost:
+              localhost[0]:
+                uri: http://microservices-fraud:8092
+  zipkin:
+    baseUrl: http://zipkin:9411
+
+customer:
+  fraud:
+    url: http://FRAUD/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
